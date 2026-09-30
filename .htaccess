@@ -1,0 +1,12 @@
+# Disable directory listing
+Options -Indexes
+
+# Block access to sensitive files if any appear here by mistake
+<FilesMatch "\.(env|log|sql|bak|config)$">
+    Require all denied
+</FilesMatch>
+
+# Block hidden files
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
