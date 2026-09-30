@@ -30,15 +30,10 @@ foreach ($possiblePaths as $path) {
     }
 }
 
-if (!$authPath) {
-    http_response_code(500);
-    echo json_encode([
-        'success' => false,
-        'error'   => 'auth.php not found',
-        'tried'   => $possiblePaths,
-        'document_root' => $_SERVER['DOCUMENT_ROOT'] ?? null,
-        'current_dir'   => __DIR__
-    ]);
+echo json_encode([
+    'success' => false,
+    'error' => 'Authentication service unavailable'
+]);
     exit;
 }
 
